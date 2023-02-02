@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """ Task 5 module """
+from typing import List
 
 
-def sum_list(input_list: list[float]) -> float:
+def sum_list(input_list: List[float]) -> float:
     """
     performs a sum operation
     Args:
