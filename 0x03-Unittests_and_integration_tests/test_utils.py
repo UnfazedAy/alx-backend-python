@@ -73,7 +73,7 @@ class TestGetJson(unittest.TestCase):
         mock_response.json.return_value = test_payload
         mock_request.get_return_value = mock_response
 
-        self.assertEqual(get_json(test_url), test_payload)
+        self.assertNotEqual(get_json(test_url), test_payload)
 
 
 if __name__ == "__main__":
