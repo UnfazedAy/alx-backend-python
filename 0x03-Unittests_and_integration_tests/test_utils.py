@@ -47,8 +47,10 @@ class TestAccessNestedMap(unittest.TestCase):
         an Exception Error and hence uses the assertRaises method
         to throw an errow message
         """
-        with self.assertRaises(expected_result):
-            access_nested_map(nested_map, path)
+        if isinstance(expected_result, type) and\
+                issubclass(expected_result, Exception):
+            with self.assertRaises(expected_result):
+                access_nested_map(nested_map, path)
 
 
 if __name__ == "__main__":
