@@ -4,7 +4,7 @@
 import unittest
 from parameterized import parameterized
 from utils import access_nested_map
-from typing import Dict, Union, Mapping, Sequence
+from typing import Dict, Union, Mapping, Sequence, Type
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -34,23 +34,21 @@ class TestAccessNestedMap(unittest.TestCase):
     # start of task 1
     @parameterized.expand([
         ({}, ("a",), KeyError),
-        ({"a": 1}, ("a", "b"), KeyError),
+        ({"a": 1}, ("a", "b"), KeyError)
     ])
     def test_access_nested_map_error(
         self,
-        nested_map: Mapping,
+        nested_map: Dict,
         path: Sequence,
-        expected_result: Exception
+        expected_result: Type[Exception]
     ) -> None:
         """
         A method that tests the accesss_nested_map by checking if there's
         an Exception Error and hence uses the assertRaises method
         to throw an errow message
         """
-        if isinstance(expected_result, type) and\
-                issubclass(expected_result, Exception):
-            with self.assertRaises(expected_result):
-                access_nested_map(nested_map, path)
+        with self.assertRaises(expected_result):
+            access_nested_map(nested_map, path)
 
 
 if __name__ == "__main__":
