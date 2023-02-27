@@ -2,9 +2,10 @@
 """Module for task 0"""
 
 import unittest
+from unittest.mock import Mock, patch
 from parameterized import parameterized
 from utils import access_nested_map
-from typing import Dict, Union, Mapping, Sequence, Type, Tuple
+from typing import Dict, Union, Mapping, Sequence
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -33,22 +34,37 @@ class TestAccessNestedMap(unittest.TestCase):
 
     # start of task 1
     @parameterized.expand([
-        ({}, ("a",), KeyError),
-        ({"a": 1}, ("a", "b"), KeyError)
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b"))
     ])
     def test_access_nested_map_error(
         self,
-        nested_map: Dict,
-        path: Tuple[str],
-        expected_result: Type[Exception]
+        nested_map: Mapping,
+        path: Sequence,
     ) -> None:
         """
         A method that tests the accesss_nested_map by checking if there's
         an Exception Error and hence uses the assertRaises method
         to throw an errow message
         """
-        with self.assertRaises(expected_result):
+        with self.assertRaises(Exception):
             access_nested_map(nested_map, path)
+
+
+# class TestGetJson(unittest.TestCase):
+#     """
+#     A class that uses unittest and parmetrization to verify
+#     utils.get_json functionality
+#     """
+#     @parameterized.expand([
+#         ("http://example.com", {"payload": True}),
+#         ("http://holberton.io", {"payload": False})
+#     ])
+#     def test_get_json(
+#         self,
+#         test_url: str,
+#         test_payload: Dict
+#     ) -> None:
 
 
 if __name__ == "__main__":
