@@ -4,7 +4,7 @@
 import unittest
 from parameterized import parameterized
 from utils import access_nested_map
-from typing import Dict, Union, Mapping, Sequence, Type
+from typing import Dict, Union, Mapping, Sequence, Type, Tuple
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -39,7 +39,7 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map_error(
         self,
         nested_map: Dict,
-        path: Sequence,
+        path: Tuple[str],
         expected_result: Type[Exception]
     ) -> None:
         """
