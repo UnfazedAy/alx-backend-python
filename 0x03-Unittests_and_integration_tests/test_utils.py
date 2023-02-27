@@ -49,7 +49,3 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(expected_result):
             access_nested_map(nested_map, path)
-
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
