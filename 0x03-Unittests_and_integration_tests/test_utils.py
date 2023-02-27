@@ -3,7 +3,7 @@
 
 import unittest
 from unittest.mock import Mock, patch
-from parameterized import parameterized, parametrized_class
+from parameterized import parameterized, parameterized_class
 from utils import access_nested_map, get_json
 from typing import Dict, Union, Mapping, Sequence, Any, Callable
 
