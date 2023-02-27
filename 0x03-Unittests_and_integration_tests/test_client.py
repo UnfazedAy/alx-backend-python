@@ -100,8 +100,12 @@ def requests_get(*args, **kwargs):
 
 @parameterized_class(
     ('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'),
-    [(TEST_PAYLOAD[0][0], TEST_PAYLOAD[0][1], TEST_PAYLOAD[0][2],
-      TEST_PAYLOAD[0][3])]
+    [(
+        TEST_PAYLOAD[0][0],
+        TEST_PAYLOAD[0][1],
+        TEST_PAYLOAD[0][2],
+        TEST_PAYLOAD[0][3]
+    )]
 )
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """
